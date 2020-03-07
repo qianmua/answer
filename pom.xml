@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pres.hjc</groupId>
-    <artifactId>entitymanage</artifactId>
+    <artifactId>answer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>entitymanage</name>
+    <name>answer</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
