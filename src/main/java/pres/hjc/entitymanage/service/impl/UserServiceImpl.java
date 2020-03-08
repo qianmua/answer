@@ -6,6 +6,9 @@ import pres.hjc.entitymanage.entity.UserPojo;
 import pres.hjc.entitymanage.mapping.UserMapping;
 import pres.hjc.entitymanage.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by IntelliJ IDEA.
  * User: HJC
@@ -17,8 +20,9 @@ import pres.hjc.entitymanage.service.UserService;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapping userMapping;
+
     @Override
-    public UserPojo user_login(String uid, String password) {
+    public UserPojo user_login(String uid, String password, HttpServletRequest request, HttpServletResponse response) {
         return userMapping.user_login(uid,password);
     }
 }

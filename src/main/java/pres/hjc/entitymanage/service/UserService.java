@@ -1,7 +1,9 @@
 package pres.hjc.entitymanage.service;
 
-import org.apache.ibatis.annotations.Param;
 import pres.hjc.entitymanage.entity.UserPojo;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,5 +13,5 @@ import pres.hjc.entitymanage.entity.UserPojo;
  * To change this template use File | Settings | File Templates.
  */
 public interface UserService {
-    UserPojo user_login(@Param("uid") String uid, @Param("password") String password);
+    UserPojo user_login(String uid, String password, HttpServletRequest request, HttpServletResponse response);
 }

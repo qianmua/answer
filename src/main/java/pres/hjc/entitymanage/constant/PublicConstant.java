@@ -11,4 +11,5 @@ public interface PublicConstant {
 
     String TOKEN_NAME = "SESSION_TOKEN";
     String SESSION_NAME = "user";
+    String MODEL_MESSAGE = "message";
 }
