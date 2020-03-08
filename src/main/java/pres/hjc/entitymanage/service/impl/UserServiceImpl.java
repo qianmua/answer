@@ -23,6 +23,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserPojo user_login(String uid, String password, HttpServletRequest request, HttpServletResponse response) {
+
+        String token;
+
+
         return userMapping.user_login(uid,password);
+    }
+
+    @Override
+    public void logout(HttpServletRequest request, HttpServletResponse response){
+
     }
 }

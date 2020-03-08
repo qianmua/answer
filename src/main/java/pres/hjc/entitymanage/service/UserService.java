@@ -14,4 +14,5 @@ import javax.servlet.http.HttpServletResponse;
  */
 public interface UserService {
     UserPojo user_login(String uid, String password, HttpServletRequest request, HttpServletResponse response);
+    void logout(HttpServletRequest request,HttpServletResponse response);
 }
