@@ -29,5 +29,5 @@ public class StatisticsPojo {
     private String sortId;
     private String allAnswer;
     private String returnJson;
-    private UserProj userProj;
+    private UserPojo userPojo;
 }
