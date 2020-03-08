@@ -7,23 +7,14 @@ import org.springframework.stereotype.Component;
 /**
  * Created by IntelliJ IDEA.
  * User: HJC
- * Date: 2020/3/8
- * Time: 13:00
+ * Date: 2019/12/27
+ * Time: 10:51
  * To change this template use File | Settings | File Templates.
  */
 @Component
-@Data
 @ApiModel
-public class UserPojo {
-
-    private String userId;
+@Data
+public class GetPaiPojo {
     private String userName;
-    private String passWord;
-    private String userNo;
-    private String userClass;
-    private String classroomID;
-    private String tel;
-    private String isLock;
-    private String bak;
-    private String isDel;
+    private String sumnum;
 }
