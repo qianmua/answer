@@ -12,4 +12,9 @@ public interface PublicConstant {
     String TOKEN_NAME = "SESSION_TOKEN";
     String SESSION_NAME = "user";
     String MODEL_MESSAGE = "message";
+    String SUFFER = "";
+    String PREFIX = ".html";
+    String PREFIX2 = ".jsp";
+    String PREFIX3 = ".php";
+    String PREFIX4 = "";
 }
