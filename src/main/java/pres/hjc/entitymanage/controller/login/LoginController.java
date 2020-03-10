@@ -41,7 +41,7 @@ public class LoginController {
      */
     @ApiOperation("登录接口")
     @PostMapping("login")
-    public String index(@RequestParam("name")String name,
+    public String index(@RequestParam("username")String name,
                         @RequestParam("password")String password,
                         HttpServletRequest request,
                         HttpServletResponse response,
