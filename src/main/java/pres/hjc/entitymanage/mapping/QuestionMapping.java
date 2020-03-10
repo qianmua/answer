@@ -2,6 +2,7 @@ package pres.hjc.entitymanage.mapping;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import pres.hjc.entitymanage.entity.QuestionPojo;
 
 import java.util.List;
@@ -15,5 +16,17 @@ import java.util.List;
  */
 @Mapper
 public interface QuestionMapping {
+
+    @Select({
+            "<script>",
+            "select question_id, question_text, answer_a, answer_b, answer_c, answer_d, question_answer, question_sub " +
+                    "FROM t_question " +
+                    "where question_sub in",
+                "<foreach item='id' collection='subid' open='(' separator=',' close=')' >" ,
+                    "#{id}" ,
+                "</foreach>" ,
+                    "ORDER BY RAND() limit #{count}",
+            "</script>"
+    })
     List<QuestionPojo> queryQuestionId(@Param("subid") Integer subid[], @Param("count") int count);
 }

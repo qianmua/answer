@@ -1,6 +1,7 @@
 package pres.hjc.entitymanage.mapping;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import pres.hjc.entitymanage.entity.CoursePojo;
 
 import java.util.List;
@@ -14,5 +15,6 @@ import java.util.List;
  */
 @Mapper
 public interface CourseMapping {
+    @Select("SELECT courseNO, courseName, marks FROM t_course")
     List<CoursePojo> queryAllCourse();
 }
