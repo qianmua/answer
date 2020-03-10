@@ -1,7 +1,9 @@
 package pres.hjc.entitymanage.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pres.hjc.entitymanage.constant.PublicInterface;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping("/init")
+//@RequestMapping("/init")
 public class InitController {
 
+    @RequestMapping("/")
+    public String index(Model model){
+        model.addAttribute("suffer", PublicInterface.GET_SUFFER);
+        return "index";
+    }
 }

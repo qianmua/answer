@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pres.hjc.entitymanage.constant.PublicConstant;
+import pres.hjc.entitymanage.constant.PublicInterface;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,7 +19,7 @@ import pres.hjc.entitymanage.constant.PublicConstant;
 @RequestMapping("/html")
 public class ForwardController {
 
-    private static final String PAGE_PUBLIC_SUFFER = PublicConstant.PREFIX3;
+    private static final String PAGE_PUBLIC_SUFFER = PublicInterface.GET_SUFFER;
 
     @GetMapping("rg" + PAGE_PUBLIC_SUFFER)
     public String register(){return "html/register";}
