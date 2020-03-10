@@ -35,4 +35,9 @@ public class ForwardController {
 
     @GetMapping("al" + PAGE_PUBLIC_SUFFER)
     public String application() {return "html/application";}
+
+    @GetMapping("gh" + PAGE_PUBLIC_SUFFER)
+    public String guchar(){
+        return "html/guchar";
+    }
 }
