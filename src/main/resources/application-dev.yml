@@ -46,7 +46,7 @@ spring:
     static-locations: classpath:/static/
   redis:
     host: 47.96.230.44
-    database: 1
+    database: 0
     port: 6379
     password:
     timeout: 5000

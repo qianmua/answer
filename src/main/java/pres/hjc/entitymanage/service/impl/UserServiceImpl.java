@@ -42,8 +42,14 @@ public class UserServiceImpl implements UserService {
             userPojo = redisTemplate.opsForValue().get(token);
             if (userPojo == null){
                 userPojo = userMapping.user_login(uid,password);
+            }else {
+                redisTemplate.delete(token);
             }
         }
+        //flush
+        token = PublicMethod.getUUID();
+        redisTemplate.opsForValue().set(token, userPojo);
+        CookieUtils.addCookie(response,PublicConstant.TOKEN_NAME,token,60*60*24*7);
 
         return userPojo;
     }
