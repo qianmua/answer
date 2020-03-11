@@ -19,7 +19,7 @@ public class MD5Utils {
      * @param slat
      * @return
      */
-    private static String getMD5(String password, String slat){
+    public String getMD5(String password, String slat){
         String base = password + "/" + slat;
         String md5password = DigestUtils.md5DigestAsHex(base.getBytes());
         return md5password;

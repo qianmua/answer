@@ -1,9 +1,6 @@
 package pres.hjc.entitymanage.mapping;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import pres.hjc.entitymanage.entity.GetPaiPojo;
 import pres.hjc.entitymanage.entity.StatisticsPojo;
 
@@ -18,8 +15,11 @@ import java.util.List;
  */
 @Mapper
 public interface StatisticsMapping {
-    @Insert("")
-    int statisInsert(StatisticsPojo statisticsProj);
+    @Insert("INSERT INTO t_statistics(allTopic, correctAnswer, errorAnswer, fraction, uid, startTime, endTime, answerNumber, Subject, sortId, allAnswer, returnJson)" +
+            " VALUES (#{allTopic} ,#{correctAnswer } ,#{errorAnswer} ,#{fraction} ,#{uid} ,#{startTime} ,#{endTime} ," +
+            " #{answerNumber} ,#{Subject} ,#{sortId} ,#{allAnswer} ,#{returnJson} )")
+    @Options( useGeneratedKeys = true , keyProperty = "tid" , keyColumn = "tid")
+    int statisInsert(StatisticsPojo statisticsPojo);
 
     @Select("SELECT tid, allTopic, correctAnswer, errorAnswer, fraction, uid, startTime, endTime, answerNumber, Subject, sortId, allAnswer, returnJson" +
             " FROM t_statistics")
