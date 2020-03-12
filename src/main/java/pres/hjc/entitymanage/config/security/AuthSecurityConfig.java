@@ -23,7 +23,7 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
         /*super.configure(http);*/
         http
                 .authorizeRequests()
-                .antMatchers("/","/html/**","/lg/**","").permitAll()
+                .antMatchers("/","/html/**","/lg/**").permitAll()
                 .antMatchers("/admin/**").hasRole("get")
                 .antMatchers("/admin/**").hasRole("admin")
         ;
