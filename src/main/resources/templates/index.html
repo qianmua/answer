@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/materialize.min.css}">
     <link rel="stylesheet" th:href="@{/css/tooplate.css}">
+    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon">
 </head>
 
 <body id="home">
@@ -54,7 +55,7 @@
         </div>
     </div>
 
-    <footer class="row tm-mt-big mb-3">
+    <footer class="row tm-mt-big mb-3" th:fragment="footer">
         <div class="col-xl-12 text-center font-weight-light">
             <p class="d-inline-block tm-bg-black white-text py-2 tm-px-5">
                 网站模板取自<a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>

@@ -2,6 +2,7 @@ package pres.hjc.entitymanage.controller.login;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pres.hjc.entitymanage.constant.PublicConstant;
+import pres.hjc.entitymanage.entity.UserPojo;
 import pres.hjc.entitymanage.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @Api( tags = "登录相关接口")
 @RequestMapping("/lg")
+@Slf4j
 public class LoginController {
 
     @Autowired
@@ -46,13 +49,17 @@ public class LoginController {
                         HttpServletRequest request,
                         HttpServletResponse response,
                         Model model){
-
+        UserPojo userPojo = null;
         if (name != null && password != null){
-            userService.user_login(name,password,request,response);
+            userPojo = userService.user_login(name,password,request,response);
         }else {
             model.addAttribute(PublicConstant.MODEL_MESSAGE,"账号输入异常");
         }
-        return "index";
+        if (userPojo == null){
+            model.addAttribute(PublicConstant.MODEL_MESSAGE,"账号密码错误");
+            return "index";
+        }
+        return "html/register";
     }
 
     /**

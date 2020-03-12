@@ -47,10 +47,11 @@ public class UserServiceImpl implements UserService {
             }
         }
         //flush
-        token = PublicMethod.getUUID();
-        redisTemplate.opsForValue().set(token, userPojo);
-        CookieUtils.addCookie(response,PublicConstant.TOKEN_NAME,token,60*60*24*7);
-
+        if (userPojo == null){
+            token = PublicMethod.getUUID();
+            redisTemplate.opsForValue().set(token, userPojo);
+            CookieUtils.addCookie(response,PublicConstant.TOKEN_NAME,token,60*60*24*7);
+        }
         return userPojo;
     }
 
