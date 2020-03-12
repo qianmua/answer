@@ -59,9 +59,15 @@ public class LoginController {
             model.addAttribute(PublicConstant.MODEL_MESSAGE,"账号密码错误");
             return "index";
         }
-        return "html/register";
+        return "redirect:/html/rg.php";
     }
 
+    @ApiOperation("注册账号")
+    @PostMapping("signup")
+    public String signup(){
+
+        return "index";
+    }
     /**
      * logout
      * @param request

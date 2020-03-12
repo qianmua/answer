@@ -21,7 +21,7 @@ public class ForwardController {
 
     private static final String PAGE_PUBLIC_SUFFER = PublicInterface.GET_SUFFER;
 
-    @GetMapping("rg" + PAGE_PUBLIC_SUFFER)
+    @RequestMapping("rg" + PAGE_PUBLIC_SUFFER)
     public String register(){return "html/register";}
 
     @GetMapping("sg" + PAGE_PUBLIC_SUFFER)
