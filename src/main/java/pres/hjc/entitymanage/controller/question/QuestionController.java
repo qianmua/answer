@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pres.hjc.entitymanage.constant.PublicConstant;
 import pres.hjc.entitymanage.entity.QuestionPojo;
 import pres.hjc.entitymanage.service.impl.QuestionServiceImpl;
 
@@ -29,9 +30,9 @@ public class QuestionController {
     private QuestionServiceImpl questionService;
 
     @RequestMapping("getq")
-    @ResponseBody
+//    @ResponseBody
     @ApiOperation("随机得到题")
-    public List<QuestionPojo> getquestion(Model model,
+    public String getquestion(Model model,
                                           Integer[] lq,
                                           Integer count){
         List<QuestionPojo> list = null;
@@ -41,6 +42,7 @@ public class QuestionController {
         //111
         list = questionService.queryQuestionId(lq,count);
         list.forEach(System.out::println);
-        return list;
+        model.addAttribute(PublicConstant.TABLE_QUESTION,list);
+        return "html/survey";
     }
 }
