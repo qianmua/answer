@@ -20,6 +20,7 @@ public interface PublicConstant {
     String SESSION_NAME = "user";
     String MODEL_MESSAGE = "message";
     String TABLE_QUESTION = "question";
+    String TABLE_COUNT = "count";
 
     /**
      * 路由

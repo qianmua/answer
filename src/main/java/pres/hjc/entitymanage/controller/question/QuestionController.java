@@ -16,9 +16,9 @@ import java.util.List;
 /**
  * Created by IntelliJ IDEA.
  *
- * @Author: HJC
- * @date: 2020/3/13
- * @time: 21:05
+ * @author HJC
+ * @date 2020/3/13
+ * @time 21:05
  * To change this template use File | Settings | File Templates.
  */
 @Controller
@@ -29,8 +29,15 @@ public class QuestionController {
     @Autowired
     private QuestionServiceImpl questionService;
 
+    /**
+     * 拿到题目
+     * @param model
+     * @param lq 题目
+     * @param count 题目数量
+     * @return lq
+     */
     @RequestMapping("getq")
-//    @ResponseBody
+    /*@ResponseBody*/
     @ApiOperation("随机得到题")
     public String getquestion(Model model,
                                           Integer[] lq,
@@ -38,11 +45,12 @@ public class QuestionController {
         List<QuestionPojo> list = null;
         //111
         lq = new Integer[]{402,401,403,501};
-        count = 50;
+        count = 20;
         //111
         list = questionService.queryQuestionId(lq,count);
-        list.forEach(System.out::println);
+        /*list.forEach(System.out::println);*/
         model.addAttribute(PublicConstant.TABLE_QUESTION,list);
+        /*model.addAttribute(PublicConstant.TABLE_COUNT,count);*/
         return "html/survey";
     }
 }
