@@ -21,6 +21,7 @@ public interface PublicConstant {
     String MODEL_MESSAGE = "message";
     String TABLE_QUESTION = "question";
     String TABLE_COUNT = "count";
+    String TABLE_COURSE = "course";
 
     /**
      * 路由
