@@ -24,7 +24,10 @@
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                 <div class="tm-home-left mt-3 font-weight-light">
-                    <p class="tm-mb-35">旧版答题系统地址：<a href="http://www.molimithjc.top:8080">答题</a>&emsp;新系统已经重构为贤聚答题</p>
+                    <p class="tm-mb-35">
+                        寂寞青灯伴君行，心中有佛言有衷!
+                        <!--旧版答题系统地址：<a href="http://www.molimithjc.top:8080">答题</a>&emsp;新系统已经重构为贤聚答题-->
+                    </p>
                     <p class="tm-mb-35">贤聚答题是一个在线的答题网站.</p>
                     <p>欢迎您的来访!</p>
                 </div>
@@ -33,21 +36,21 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                 <ul class="list-group tm-home-list tm-bg-black font-weight-light">
                     <li class="d-flex justify-content-between align-items-center">
-                        <a th:href="@{/html/rg.php}" class="tm-white-text">01. Register</a>
+                        <a th:href="@{/html/rg.php}" class="tm-white-text"> Register</a>
                     </li>
-                    <li class="d-flex justify-content-between align-items-center">
-                        <a th:href="@{/html/sg.php}" class="tm-white-text">02. 注册账号</a>
+                    <li class="d-flex justify-content-between align-items-center" th:if="${session.user} eq null">
+                        <a th:href="@{/html/sg.php}" class="tm-white-text"> 注册账号</a>
                     </li>
-                    <li class="d-flex justify-content-between align-items-center">
+                    <li class="d-flex justify-content-between align-items-center" th:if="${session.user} eq null">
                         <a th:href="@{/html/lg.php}" class="tm-white-text">03. 账号登录</a>
                     </li>
-                    <li class="d-flex justify-content-between align-items-center">
+                    <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
                         <a th:href="@{/html/sr.php}" class="tm-white-text">04. 答题</a>
                     </li>
-                    <li class="d-flex justify-content-between align-items-center">
+                    <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
                         <a th:href="@{/html/al.php}" class="tm-white-text">05. Application</a>
                     </li>
-                    <li class="d-flex justify-content-between align-items-center">
+                    <li class="d-flex justify-content-between align-items-center" th:if="${user} ne null">
                         <a th:href="@{/html/gh.php}" class="tm-white-text">06. 交流室</a>
                     </li>
                 </ul>

@@ -1,5 +1,6 @@
 package pres.hjc.entitymanage.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * To change this template use File | Settings | File Templates.
  */
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapping userMapping;
@@ -32,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserPojo user_login(String uid, String password, HttpServletRequest request, HttpServletResponse response) {
-
+        log.info("get login.");
         String token = CookieUtils.getUid(request,PublicConstant.TOKEN_NAME);
         UserPojo userPojo = null;
         password = md5Utils.getMD5(password,PublicConstant.PASSWORD_SLAT);
@@ -47,9 +49,11 @@ public class UserServiceImpl implements UserService {
             }
         }
         //flush
-        if (userPojo == null){
+        if (userPojo != null){
+            log.info("user -> redis");
             token = PublicMethod.getUUID();
             redisTemplate.opsForValue().set(token, userPojo);
+            request.getSession().setAttribute(PublicConstant.SESSION_NAME,userPojo);
             CookieUtils.addCookie(response,PublicConstant.TOKEN_NAME,token,60*60*24*7);
         }
         return userPojo;

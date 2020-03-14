@@ -59,7 +59,7 @@ public class LoginController {
             model.addAttribute(PublicConstant.MODEL_MESSAGE,"账号密码错误");
             return "index";
         }
-        return "redirect:/html/rg.php";
+        return "redirect:/html/index.php";
     }
 
     @ApiOperation("注册账号")
