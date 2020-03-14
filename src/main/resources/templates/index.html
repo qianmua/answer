@@ -35,23 +35,23 @@
 
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                 <ul class="list-group tm-home-list tm-bg-black font-weight-light">
-                    <li class="d-flex justify-content-between align-items-center">
-                        <a th:href="@{/html/rg.php}" class="tm-white-text"> Register</a>
+                    <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
+                        <a th:href="@{/html/rg.php}" class="tm-white-text"> 选择答题</a>
                     </li>
                     <li class="d-flex justify-content-between align-items-center" th:if="${session.user} eq null">
                         <a th:href="@{/html/sg.php}" class="tm-white-text"> 注册账号</a>
                     </li>
                     <li class="d-flex justify-content-between align-items-center" th:if="${session.user} eq null">
-                        <a th:href="@{/html/lg.php}" class="tm-white-text">03. 账号登录</a>
+                        <a th:href="@{/html/lg.php}" class="tm-white-text"> 账号登录</a>
                     </li>
                     <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
-                        <a th:href="@{/html/sr.php}" class="tm-white-text">04. 答题</a>
+                        <a th:href="@{/html/sr.php}" class="tm-white-text"> 答题</a>
                     </li>
                     <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
-                        <a th:href="@{/html/al.php}" class="tm-white-text">05. Application</a>
+                        <a th:href="@{/html/al.php}" class="tm-white-text"> Application</a>
                     </li>
-                    <li class="d-flex justify-content-between align-items-center" th:if="${user} ne null">
-                        <a th:href="@{/html/gh.php}" class="tm-white-text">06. 交流室</a>
+                    <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
+                        <a th:href="@{/html/gh.php}" class="tm-white-text"> 交流室</a>
                     </li>
                 </ul>
             </div>
