@@ -18,6 +18,14 @@
         <div class="row tm-register-row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-l">
                 <form action="" method="post">
+                    <th:block th:each="count:${#numbers.sequence(0,5)}">
+                        <div class="mb-2">
+                            <label class="mr-4" th:each="coursePojo, iter : ${course}">
+                                <input class="with-gap" name="title" type="checkbox" value="mr" />
+                                <span th:text="${coursePojo.courseName}"></span>
+                            </label>
+                        </div>
+                    </th:block>
                     <div class="mb-2">
                         <label class="mr-4">
                             <input class="with-gap" name="title" type="checkbox" value="mr" />
@@ -28,7 +36,7 @@
                             <span>Ms.</span>
                         </label>
                         <label>
-                            <input class="with-gap" name="title" type="checkbox" value="mrs" />
+                            <input class="with-gap" name="title" type="radio" value="mrs" />
                             <span>Mrs.</span>
                         </label>
                     </div>
