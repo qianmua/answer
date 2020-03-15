@@ -35,7 +35,6 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         super.configure(web);
-
         //排除static
         web.ignoring().antMatchers("/static/**");
     }
@@ -43,7 +42,6 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         /*super.configure(auth);*/
-
         //get mysql database
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
                 .withUser("admin").password(new BCryptPasswordEncoder().encode("123456")).roles("get")

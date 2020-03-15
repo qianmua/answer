@@ -44,9 +44,9 @@
                     <li class="d-flex justify-content-between align-items-center" th:if="${session.user} eq null">
                         <a th:href="@{/html/lg.php}" class="tm-white-text"> 账号登录</a>
                     </li>
-                    <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
+                    <!--<li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
                         <a th:href="@{/html/sr.php}" class="tm-white-text"> 答题</a>
-                    </li>
+                    </li>-->
                     <li class="d-flex justify-content-between align-items-center" th:if="${session.user} ne null">
                         <a th:href="@{/html/al.php}" class="tm-white-text"> Application</a>
                     </li>
