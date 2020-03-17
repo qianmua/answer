@@ -2,6 +2,7 @@ package pres.hjc.entitymanage.controller.question;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,7 @@ import java.util.List;
 @Controller
 @Api( tags = "选题接口")
 @RequestMapping("/tq")
+@Slf4j
 public class QuestionController {
 
     @Autowired
@@ -37,15 +39,18 @@ public class QuestionController {
      * @return lq
      */
     @RequestMapping("getq")
-    /*@ResponseBody*/
     @ApiOperation("随机得到题")
     public String getquestion(Model model,
-                                          Integer[] lq,
-                                          Integer count){
+                              Integer[] lq,
+                              Integer count){
         List<QuestionPojo> list = null;
         //111
-        lq = new Integer[]{402,401,403,501};
-        count = 20;
+        /*for (Integer integer : lq) {
+            System.out.println(integer);
+        }*/
+//        System.out.println(count);
+        /*lq = new Integer[]{402,401,403,501};
+        count = 20;*/
         //111
         list = questionService.queryQuestionId(lq,count);
         /*list.forEach(System.out::println);*/
